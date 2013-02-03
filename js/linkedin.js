@@ -1,18 +1,18 @@
 var casper = require('casper').create();
 var system = require('system');
 
-if (system.args.length < 7) {
-  console.info("usage: casperjs linkedin.js keywords postalcode industry jspath");
+if (system.args.length < 4) {
+  console.info("usage: casperjs linkedin.js jspath");
   phantom.exit();
 }
 
 // keywords is the keyword to search for (EPIC)
 // postalcode is the postal code to narrow results for (97005)
 // industry is the name of the industry (Hospital & Health Care)
-var keywords = system.args[4];
-var postalcode = system.args[5];
-var industry = system.args[6];
-var jsPath = system.args[7]
+var keywords = system.env['KEYWORDS'];
+var postalcode = system.env['POSTALCODE'];
+var industry = system.env['INDUSTRY'];
+var jsPath = system.args[4];
 
 var linkedin_user = system.env['LINKEDIN_USER'];
 var linkedin_password = system.env['LINKEDIN_PASSWORD'];

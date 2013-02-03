@@ -21,8 +21,9 @@ module Linkedin
         path        = File.expand_path("../js", File.dirname(__FILE__))
         script      = File.join(path, "linkedin.js")
         credentials = "LINKEDIN_USER='#{linkedin_user}' LINKEDIN_PASSWORD='#{linkedin_password}'"
+        parameters  = "KEYWORDS='#{keywords}' POSTALCODE='#{postalcode}' INDUSTRY='#{industry}'"
 
-        command     = %Q(#{credentials} casperjs #{script} "#{keywords}" "#{postalcode}" "#{industry}" "#{path}")
+        command     = %Q(#{credentials} casperjs #{script} "#{path}")
         result      = `#{command}`
 
         if $?.exitstatus == 0
